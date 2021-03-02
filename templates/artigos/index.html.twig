@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Artigos{% endblock %}
+
+{% block body %}
+  {% if artigos %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Título do Artigo</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      
+      <body>
+        {% for artigo in artigos %}
+          <tr>
+            <td>{{ artigo.title }}</td>
+            <td>
+                <a href="/artigo/{{ artigo.id }}" class="btn btn-dark"> Exibir</a>
+            <td>    
+          </tr>
+
+        {% endfor %}
+      </body>
+    </table>
+  {% else %}
+    <p>Nenhum Artigo Encontrado</p>
+  {% endif %}
+{% endblock %}
